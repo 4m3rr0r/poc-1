@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.2/">
+  <channel>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <title>XSS Test Site</title>
+    <item>
+      <title>&lt;script&gt;alert("Test Title")&lt;/script&gt;</title>
+      <content:encoded><![CDATA[
+        <h2>Test Post Content</h2>
+        <p>Safe test payloads:</p>
+        <div id="xss-test-1">&lt;img src="x" onerror="console.log('Test 1')"&gt;</div>
+        <div id="xss-test-2">{{7*7}}</div>
+        <div id="xss-test-3">&lt;script&gt;alert("Test 2")&lt;/script&gt;</div>
+      ]]></content:encoded>
+      <wp:post_type>post</wp:post_type>
+      <wp:status>publish</wp:status>
+    </item>
+  </channel>
+</rss>
